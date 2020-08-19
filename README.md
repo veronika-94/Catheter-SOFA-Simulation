@@ -3,5 +3,5 @@
 ## Team
 Ionut Marian Motoi  
 Veronica R.  
-Alessia C.  
+Alessia Carotenuto
 Renzo C.  
