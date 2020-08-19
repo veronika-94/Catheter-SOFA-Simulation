@@ -2,6 +2,6 @@
 
 ## Team
 Ionut Marian Motoi
-Veronica R.
+Veronica Romano
 Alessia C.
 Renzo C.
