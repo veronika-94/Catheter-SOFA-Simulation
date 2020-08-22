@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
-  <RequiredPlugin name="SofaOpenglVisual">
+  <!-- <RequiredPlugin name="SofaOpenglVisual">
   <VisualStyle displayFlags="showBehaviorModels showForceFields showCollisionModels" />
 	<DefaultPipeline depth="6" verbose="0" draw="0" />
   <BruteForceDetection name="N2" />
   <MinProximityIntersection name="Proximity" alarmDistance="0.03" contactDistance="0.02" />
   <DefaultContactManager name="Response" response="default" />
-  <DefaultAnimationLoop/>
+  <DefaultAnimationLoop/> -->
+
+  <VisualStyle displayFlags="showForceFields showCollisionModels" />
+	<DefaultAnimationLoop/>
 
   <!-- The catheter is just a 1D line, but has a 3D collision model -->
 	<Node name="catheter">
     <!-- What other solvers could be used instead -->
-    <EulerImplicitSolver rayleighStiffness="0.5" printLog="false"  rayleighMass="0.7" />
+    <EulerImplicitSolver rayleighStiffness="0" printLog="false"  rayleighMass="0.1" />
     <BTDLinearSolver template="BTDMatrix6d" printLog="false" verbose="false" />
     
     <!-- TODO: understand why each point takes 7 coordinates - io e ale abbiamo visto sulla documentazione che il datatype dei DOFs
@@ -34,8 +37,7 @@
 
     <!-- This node is the collision model -->
     <Node name="Collision">
-
-      <CylinderGridTopology name="coli" nx="20" ny="20" nz="20" length="7" radius="0.1" axis="1 0 0">
+      <CylinderGridTopology name="coli" nx="6" ny="6" nz="8" length="7" radius="0.1" axis="1 0 0"/>
 
       <!--<CubeTopology nx="15" ny="2" nz="2" min="0 -0.1 -0.1" max="7 0.1 0.1" />-->
       <MechanicalObject/>
