@@ -4,4 +4,4 @@
 Ionut Marian Motoi  
 Veronica Romano  
 Alessia Carotenuto  
-Renzo C.
+Renzo Cherubino
