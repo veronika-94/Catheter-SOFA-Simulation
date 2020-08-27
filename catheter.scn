@@ -29,8 +29,8 @@
     anche la gravità funziona così, vale su quelli che non sono fissati. Crediamo che si possano fissare anche più link-->
     <FixedConstraint name="FixedConstraint" indices="0" />
 
-    <!-- Total mass equally spread over all nodes -->
-    <UniformMass totalMass="2" />
+    <!-- Why this mass distribution -->
+    <UniformMass vertexMass="1 1 0.01 0 0 0 0.1 0 0 0 0.1" printLog="false" />
 
     <!-- This should model the elasticity/rigidity of the catheter -->
     <BeamFEMForceField name="FEM" radius="0.1" youngModulus="20000000" poissonRatio="0.49"/>
