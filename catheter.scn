@@ -1,48 +1,11 @@
 <?xml version="1.0"?>
+<!-- Cathether model to be imported and used in the experiments -->
 
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
-  <!-- <RequiredPlugin name="SofaOpenglVisual">
-  <VisualStyle displayFlags="showBehaviorModels showForceFields showCollisionModels" />
-	<DefaultPipeline depth="6" verbose="0" draw="0" />
-  <BruteForceDetection name="N2" />
-  <MinProximityIntersection name="Proximity" alarmDistance="0.03" contactDistance="0.02" />
-  <DefaultContactManager name="Response" response="default" />
-  <DefaultAnimationLoop/> -->
-
   <VisualStyle displayFlags="showForceFields showCollisionModels" />
 	<DefaultAnimationLoop/>
 
-  <!-- The catheter is just a 1D line, but has a 3D collision model -->
 	<Node name="catheter">
-    <!-- What other solvers could be used instead -->
-    <EulerImplicitSolver rayleighStiffness="0" printLog="false"  rayleighMass="0.1" />
-    <BTDLinearSolver template="BTDMatrix6d" printLog="false" verbose="false" />
-    
-    <!-- TODO: understand why each point takes 7 coordinates - io e ale abbiamo visto sulla documentazione che il datatype dei DOFs
-    corrisponde a 7DOF per nodo, quindi secondo noi è per questo che sono 7. e sono 8 gruppi da 7 oerché se abbiamo 8 link.-->
-    <MechanicalObject template="Rigid3d" name="DOFs" position="0 0 0 0 0 0 1  1 0 0 0 0 0 1  2 0 0 0 0 0 1  3 0 0 0 0 0 1  4 0 0 0 0 0 1  5 0 0 0 0 0 1  6 0 0 0 0 0 1  7 0 0 0 0 0 1" />
-    
-    <!-- Specify how to connect the points e.g. 0 1 1 2 says connect 0 to 1 then 1 to 2 -->
-    <MeshTopology name="lines" lines="0 1 1 2 2 3 3 4 4 5 5 6 6 7" />
 
-    <!-- What does it do? fissa il link dell'indice indices, se è 0, la base è fissa e non si muove, se metti 7, l'ultimo link sta fermo
-    anche la gravità funziona così, vale su quelli che non sono fissati. Crediamo che si possano fissare anche più link-->
-    <FixedConstraint name="FixedConstraint" indices="0" />
-
-    <!-- Total mass equally spread over all nodes -->
-    <UniformMass totalMass="2" />
-
-    <!-- This should model the elasticity/rigidity of the catheter -->
-    <BeamFEMForceField name="FEM" radius="0.1" youngModulus="20000000" poissonRatio="0.49"/>
-
-    <!-- This node is the collision model -->
-    <Node name="Collision">
-      <CylinderGridTopology name="coli" nx="6" ny="6" nz="8" length="7" radius="0.1" axis="1 0 0"/>
-
-      <!--<CubeTopology nx="15" ny="2" nz="2" min="0 -0.1 -0.1" max="7 0.1 0.1" />-->
-      <MechanicalObject/>
-      <BeamLinearMapping isMechanical="true" />
-      <TriangleCollisionModel/>
-    </Node>
   </Node>
 </Node>
