@@ -22,4 +22,10 @@
 
     <!-- Import the catheter -->
     <include href="catheter.scn" />
+
+    <Node name = "c_shape">
+        <MechanicalObject template="Rigid3d"  dx="0" dy="0" dz="0" rx="0" ry="0" rz="0" scale="1.0"  />
+        <MeshObjLoader name="meshVisualLoader" filename="mesh/c_open.obj" translation="15 0 0" rotation="0 0 180" scale="0.2" handleSeams="1"/>
+		<OglModel name="Visual" src="@meshVisualLoader" color="green"/>
+    </Node>
 </Node>
