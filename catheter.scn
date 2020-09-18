@@ -5,10 +5,10 @@
     <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-5" threshold="1e-5" /> -->
 
     <!-- Specify a MechanicalObject to store the positions, velocities and forces -->
-    <MechanicalObject template="Rigid3d" name="DOFs" position="0 0 0 0 0 0 1  1 0 0 0 0 0 1  2 0 0 0 0 0 1  3 0 0 0 0 0 1  4 0 0 0 0 0 1  5 0 0 0 0 0 1  6 0 0 0 0 0 1  7 0 0 0 0 0 1" />
+    <MechanicalObject template="Rigid3d" name="DOFs" position="0 0 0 0 0 0 1  1 0 0 0 0 0 1  2 0 0 0 0 0 1  3 0 0 0 0 0 1  4 0 0 0 0 0 1  5 0 0 0 0 0 1  6 0 0 0 0 0 1  7 0 0 0 0 0 1  8 0 0 0 0 0 1  9 0 0 0 0 0 1  10 0 0 0 0 0 1  11 0 0 0 0 0 1  12 0 0 0 0 0 1" />
     
     <!-- Specify how to connect the points e.g. 0 1 1 2 says connect 0 to 1 then 1 to 2 -->
-    <MeshTopology name="lines" lines="0 1 1 2 2 3 3 4 4 5 5 6 6 7" />
+    <MeshTopology name="lines" points="@DOFs.position" lines="0 1  1 2  2 3  3 4  4 5  5 6  6 7  7 8  8 9  9 10  10 11  11 12" />
 
     <!-- Fixes the first DOF -->
     <FixedConstraint name="FixedConstraint" indices="0" />
@@ -20,17 +20,16 @@
     <BeamFEMForceField name="FEM" radius="0.1" youngModulus="20000000" poissonRatio="0.49"/>
 
     <Node name="Visu">
-		<MeshObjLoader name="meshVisualLoader" filename="mesh/cylinder_65_cm.obj" scale3d="0.5 1.0 0.5" handleSeams="1" />
+		<MeshObjLoader name="meshVisualLoader" filename="mesh/cylinder_65_cm.obj" scale3d="0.5 2.0 0.5" rotation="0 0 -90" handleSeams="1" />
 		<OglModel name="Visual" src="@meshVisualLoader" color="gray" />
-		<RigidMapping input="@../" output="@Visual" />
+        <BeamLinearMapping isMechanical="true" />
 	</Node>
 
     <!-- Collision model -->
     <Node name="Collision">
-        <CylinderGridTopology nx="6" ny="6" nz="8" length="7" radius="0.1" axis="1 0 0" />
+        <CylinderGridTopology nx="6" ny="6" nz="12" length="12" radius="0.1" axis="1 0 0" />
         <MechanicalObject/>
         <BeamLinearMapping isMechanical="true" />
         <TriangleCollisionModel/>
-        <!-- <RigidMapping /> -->
     </Node>
 </Node>
