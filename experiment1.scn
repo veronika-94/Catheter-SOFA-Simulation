@@ -1,5 +1,25 @@
 <?xml version="1.0"?>
 
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
+    <!-- Add SofaPython plugin in order to move the catheter by using the keyboard -->
+    <RequiredPlugin pluginName="SofaPython"/>
 
+    <!-- Specify the visual style at the start of the scene -->
+    <VisualStyle displayFlags="showVisual showBehavior showForceFields showCollisionModels" />
+
+    <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
+    <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-5" threshold="1e-5" />
+    
+    <!-- FreeMotionAnimationLoop simulates multiple contacts better than DefaultAnimationLoop -->
+    <!-- <FreeMotionAnimationLoop /> 
+    <LCPConstraintSolver tolerance="0.001" maxIt="1000"/> -->
+
+    <!-- Default variables needed for collisions -->
+    <DefaultPipeline depth="6" verbose="0" draw="0" />
+    <BruteForceDetection name="Detection" />
+    <MinProximityIntersection name="Proximity" alarmDistance="2.5" contactDistance="1.0" />
+    <DefaultContactManager name="Response" response="FrictionContact" />
+
+    <!-- Import the catheter -->
+    <include href="catheter.scn" />
 </Node>
