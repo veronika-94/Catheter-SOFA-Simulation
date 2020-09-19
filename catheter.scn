@@ -30,7 +30,7 @@
 
     <!-- Collision model -->
     <Node name="CatheterCollisionModel">
-        <CylinderGridTopology nx="6" ny="6" nz="12" length="12" radius="0.1" axis="1 0 0" />
+        <CylinderGridTopology nx="3" ny="3" nz="12" length="12" radius="0.1" axis="1 0 0" />
         <MechanicalObject/>
         <BeamLinearMapping isMechanical="true" />
         <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="500"  contactFriction="0.01" />

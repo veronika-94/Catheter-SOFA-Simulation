@@ -39,9 +39,9 @@
         <Node name="CollisionModel">
                 <MeshTopology src="@../loader" name="ObstacleCollisionModel" />
                 <MechanicalObject src="@../loader" name="ObstacleState" />
-                <TriangleCollisionModel name="obstacle" contactStiffness="5" />
-                <LineCollisionModel name="obstacle" contactStiffness="@[-1].contactStiffness" />
-                <PointCollisionModel name="obstacle" contactStiffness="@[-1].contactStiffness" />
+                <TriangleCollisionModel name="obstacleT" contactStiffness="5" />
+                <LineCollisionModel name="obstacleL" contactStiffness="@[-1].contactStiffness" />
+                <PointCollisionModel name="obstacleP" contactStiffness="@[-1].contactStiffness" />
             </Node>
         <Node name="VisualModel">
             <OglModel name="ObstacleVisualModel" src="@../loader" color="green" />
