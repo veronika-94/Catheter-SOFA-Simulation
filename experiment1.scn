@@ -1,20 +1,22 @@
 <?xml version="1.0"?>
 
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
+    <RequiredPlugin name="SofaOpenglVisual"/>
+
     <!-- Add SofaPython plugin in order to move the catheter by using the keyboard -->
     <RequiredPlugin pluginName="SofaPython"/>
 
     <!-- Specify the visual style at the start of the scene -->
     <VisualStyle displayFlags="showVisual showBehavior showForceFields showCollisionModels" />
 
-    <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
-    <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-5" threshold="1e-5" />
-
     <!-- Default variables needed for collisions -->
-    <DefaultPipeline depth="6" verbose="0" draw="0" />
+    <DefaultPipeline depth="6" verbose="0" />
     <BruteForceDetection name="Detection" />
-    <MinProximityIntersection name="Proximity" alarmDistance="2.5" contactDistance="1.0" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.15" contactDistance="0.05" />
     <DefaultContactManager name="Response" response="FrictionContact" />
+
+    <FreeMotionAnimationLoop />
+    <LCPConstraintSolver tolerance="0.001" maxIt="1000"/>
 
     <!-- Import the catheter -->
     <include href="catheter.scn" />
@@ -25,17 +27,19 @@
         <MechanicalObject/>
         <TriangleCollisionModel />
         <MeshObjLoader name="meshVisualLoader1" filename="mesh/c_open.obj" translation="13 0 0" rotation="0 0 180" scale="0.2" handleSeams="1"/>
-		<OglModel name="Visual" src="@meshVisualLoader1" color="green"/>
+    <OglModel name="Visual" src="@meshVisualLoader1" color="green"/>
     </Node> -->
 
     <Node 	 name="Obstacle"  gravity="0 -9.81 0"  >
-		<MeshObjLoader name="meshLoader1" filename="mesh/cube.obj" />
-		<MeshTopology name="Mesh" src="@meshLoader1" />
-		<MechanicalObject template="Vec3d" name="Obstacle"  position="0 0 0"  velocity="0 0 0"  force="0 0 0"  externalForce="0 0 0"  derivX="0 0 0"  restScale="1"  translation="0 0 -10"  rotation="0 0 0"  scale3d="40 40 0.1" />
-		<TriangleCollisionModel template="Vec3d" name="Triangles"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
-		<LineCollisionModel template="Vec3d" name="Lines"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
-		<PointCollisionModel template="Vec3d" name="Points"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
-		<MeshObjLoader name="meshLoader_1" filename="mesh/cube.obj"  translation="0 0 -10"  rotation="0 0 0"  scale3d="40 40 0.1" handleSeams="1" />
-		<OglModel template="ExtVec3f" name="Visual" src="@meshLoader_1"  material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45 "  primitiveType="DEFAULT"  blendEquation="GL_FUNC_ADD"  sfactor="GL_SRC_ALPHA"  dfactor="GL_ONE_MINUS_SRC_ALPHA" />
-	</Node>
+        <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
+        <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-5" threshold="1e-5" />
+        <MeshObjLoader name="meshLoader1" filename="mesh/cube.obj" />
+        <MeshTopology name="Mesh" src="@meshLoader1" />
+        <MechanicalObject template="Vec3d" name="Obstacle"  position="0 0 0"  velocity="0 0 0"  force="0 0 0"  externalForce="0 0 0"  derivX="0 0 0"  restScale="1"  translation="0 0 -10"  rotation="0 0 0"  scale3d="40 40 0.1" />
+        <TriangleCollisionModel template="Vec3d" name="Triangles"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
+        <LineCollisionModel template="Vec3d" name="Lines"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
+        <PointCollisionModel template="Vec3d" name="Points"  moving="0"  simulated="0"  contactStiffness="500"  contactFriction="0.01" />
+        <MeshObjLoader name="meshLoader_1" filename="mesh/cube.obj"  translation="0 0 -10"  rotation="0 0 0"  scale3d="40 40 0.1" handleSeams="1" />
+        <OglModel template="ExtVec3f" name="Visual" src="@meshLoader_1"  material="Default Diffuse 1 0.5 0.5 0.5 1 Ambient 1 0.1 0.1 0.1 1 Specular 0 0.5 0.5 0.5 1 Emissive 0 0.5 0.5 0.5 1 Shininess 0 45 "  primitiveType="DEFAULT"  blendEquation="GL_FUNC_ADD"  sfactor="GL_SRC_ALPHA"  dfactor="GL_ONE_MINUS_SRC_ALPHA" />
+    </Node>
 </Node>
