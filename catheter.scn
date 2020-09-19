@@ -33,6 +33,8 @@
         <CylinderGridTopology nx="6" ny="6" nz="12" length="12" radius="0.1" axis="1 0 0" />
         <MechanicalObject/>
         <BeamLinearMapping isMechanical="true" />
-        <TriangleCollisionModel/>
+        <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="500"  contactFriction="0.01" />
+        <LineCollisionModel template="Vec3d" name="Lines" contactStiffness="@[-1].contactStiffness"  contactFriction="@[-1].contactFriction" />
+        <PointCollisionModel template="Vec3d" name="Points" contactStiffness="@[-1].contactStiffness"  contactFriction="@[-1].contactFriction" />
     </Node>
 </Node>

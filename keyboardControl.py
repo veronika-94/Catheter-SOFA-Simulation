@@ -8,7 +8,8 @@ class KeyboardControl(Sofa.PythonScriptController):
 		return 0
 	 
 	 
-	# key and mouse events; use this to add some user interaction to your scripts 
+	# key events;
+	# Note: Need also to press the ctrl key together with the key
 	def onKeyPressed(self,k):
 		
 		# free_position is a scalar array : [tx,ty,tz,rx,ry,rz,rw]
