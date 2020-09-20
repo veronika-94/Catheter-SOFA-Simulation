@@ -23,14 +23,14 @@
     <PrecomputedConstraintCorrection recompute="true"/> 
 
     <Node name="CatheterVisualModel">
-		<MeshObjLoader name="meshVisualLoader" filename="mesh/cylinder_65_cm.obj" scale3d="0.5 2.0 0.5" rotation="0 0 -90" handleSeams="1" /> 
+		<MeshObjLoader name="meshVisualLoader" filename="mesh/cylinder.obj" scale3d="0.25 1.2 0.25" rotation="0 0 -90" handleSeams="1" /> <!--scale3d="0.5 2.0 0.5"-->
 		<OglModel name="CatheterVisualOglModel" src="@meshVisualLoader" color="gray" />
         <BeamLinearMapping isMechanical="false" />
 	</Node>
 
     <!-- Collision model -->
     <Node name="CatheterCollisionModel">
-        <CylinderGridTopology nx="3" ny="3" nz="12" length="12" radius="0.1" axis="1 0 0" />
+        <CylinderGridTopology nx="3" ny="3" nz="12" length="12" radius="0.1" axis="1 0 0" />  
         <MechanicalObject/>
         <BeamLinearMapping isMechanical="true" />
         <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="500"  contactFriction="0.01" />
