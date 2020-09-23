@@ -28,7 +28,7 @@
                 <PointCollisionModel name="obstacleP"  moving="0" simulated="0" />
             </Node>
         <Node name="VisualModel">
-            <OglModel name="ObstacleVisualModel" src="@../loader"  material="Default Diffuse 1 0 1 0 0.3 Ambient 1 0 0.1 0 0.3" />
+            <OglModel name="ObstacleVisualModel" src="@../loader" material="Default Diffuse 1 0 1 0 0.3 Ambient 1 0 0.1 0 0.3" />
         </Node>
     </Node>
 </Node>
