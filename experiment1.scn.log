@@ -75,3 +75,7 @@
 /c_shape/VisualModel/ObstacleVisualModel.writeZTransparent = 1
 /c_shape/VisualModel/ObstacleVisualModel.blendTranslucency = 1
 /c_shape/VisualModel/ObstacleVisualModel.material = Default Diffuse 1 0 1 0 0.470588 Ambient 1 0 0.2 0 0.470588 Specular 0 0 1 0 1 Emissive 0 0 1 0 1 Shininess 0 45 
+
+--- NEW SESSION: 25/09/2020 12:35:01 ---
+/c_shape/VisualModel/ObstacleVisualModel.material = Default Diffuse 1 1 0 0 1 Ambient 1 0.2 0 0 1 Specular 0 1 0 0 1 Emissive 0 1 0 0 1 Shininess 0 45 
+/c_shape/VisualModel/ObstacleVisualModel.material = Default Diffuse 1 1 1 1 1 Ambient 1 0.2 0.2 0.2 1 Specular 0 1 1 1 1 Emissive 0 1 1 1 1 Shininess 0 45 
