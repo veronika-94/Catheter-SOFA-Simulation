@@ -12,7 +12,7 @@
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
     <BruteForceDetection name="Detection" />
-    <MinProximityIntersection name="Proximity" alarmDistance="0.2" contactDistance="0.05" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.15" contactDistance="0.05" />
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
@@ -21,12 +21,12 @@
     <Node name = "c_shape">
         <MeshObjLoader name="loader" filename="mesh/c_open.obj" translation="20 2 0" rotation="0 0 180" scale="0.5" handleSeams="1"/>
         <Node name="CollisionModel">
-                <MeshTopology src="@../loader" name="ObstacleCollisionModel" />
-                <MechanicalObject src="@../loader" name="ObstacleState" />
-                <TriangleCollisionModel name="obstacleT"  moving="0" simulated="0" />
-                <LineCollisionModel name="obstacleL" moving="0" simulated="0" />
-                <PointCollisionModel name="obstacleP"  moving="0" simulated="0" />
-            </Node>
+            <MeshTopology src="@../loader" name="ObstacleCollisionModel" />
+            <MechanicalObject src="@../loader" name="ObstacleState" />
+            <TriangleCollisionModel name="obstacleT"  moving="0" simulated="0" />
+            <LineCollisionModel name="obstacleL" moving="0" simulated="0" />
+            <PointCollisionModel name="obstacleP"  moving="0" simulated="0" />
+        </Node>
         <Node name="VisualModel">
             <OglModel name="ObstacleVisualModel" src="@../loader" material="Default Diffuse 1 0 1 0 0.3 Ambient 1 0 0.1 0 0.3" />
         </Node>
