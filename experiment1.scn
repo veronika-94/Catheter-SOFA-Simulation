@@ -26,8 +26,8 @@
         <SparseGridTopology fileTopology="mesh/vessel.obj" n="20 6 6" />
         <MechanicalObject name="VesselState" />
         <UniformMass totalMass="1" />
-        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="1" />
-        <FixedConstraint name="FixedConstraint" indices="0 639" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="200" />
+        <FixedConstraint name="FixedConstraint" indices="0 5 26 31 608 613 634 639" />
         <UncoupledConstraintCorrection/>
 
         <Node name="CollisionModel">
