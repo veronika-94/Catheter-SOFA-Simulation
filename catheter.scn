@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<Node name="Catheter">
+<Node name="Catheter" gravity="0 -9.81 0">
     <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
     <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-9" threshold="1e-9" />
     <PythonScriptController filename="keyboardControl.py" classname="KeyboardControl"/>
@@ -9,12 +9,13 @@
     <FixedConstraint name="FixedConstraint" indices="0" />
     <UniformMass totalMass="1" />
     <BeamFEMForceField name="FEM" radius="0.1" youngModulus="20000000" poissonRatio="0.49"/>
+    <UncoupledConstraintCorrection/>
 
     <Node name="CylinderTopology">
         <CylinderGridTopology name="Container" nx="4" ny="4" nz="24" length="12" radius="0.25" axis="1 0 0" />
         <MechanicalObject />
         <BeamLinearMapping isMechanical="true" />
-        <Node name="Tetra" gravity="0 -9.81 0">
+        <Node name="Tetra">
             <TetrahedronSetTopologyContainer  name="Container" />
             <TetrahedronSetTopologyModifier   name="Modifier" />
             <TetrahedronSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
@@ -26,9 +27,9 @@
                 <TriangleSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
                 <TriangleSetGeometryAlgorithms name="GeomAlgo" template="Vec3d" />
                 <Tetra2TriangleTopologicalMapping input="@../Container" output="@Container" />
-                <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="500" />
-                <LineCollisionModel     template="Vec3d" name="Lines"     contactStiffness="@[-1].contactStiffness" />
-                <PointCollisionModel    template="Vec3d" name="Points"    contactStiffness="@[-1].contactStiffness" />
+                <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="100"                    contactFriction="0.01"/>
+                <LineCollisionModel     template="Vec3d" name="Lines"     contactStiffness="@[-1].contactStiffness" contactFriction="@[-1].contactFriction"/>
+                <PointCollisionModel    template="Vec3d" name="Points"    contactStiffness="@[-1].contactStiffness" contactFriction="@[-1].contactFriction"/>
                 <!-- <TriangularFEMForceField name="FEM" youngModulus="60" poissonRatio="0.3" method="large" /> -->
                 <!-- <TriangularBendingSprings name="FEM-Bend" stiffness="300" damping="1.0" /> -->
                 <!-- <TrianglePressureForceField normal="0 0 1" dmin="0.9" dmax="1.1" pressure="0.4 0 0" /> -->

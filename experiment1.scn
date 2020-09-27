@@ -2,18 +2,20 @@
 
 <Node name="root" dt="0.01" gravity="0 0 0">
     <RequiredPlugin name="SofaOpenglVisual"/>
-
-    <!-- Add SofaPython plugin in order to move the catheter by using the keyboard -->
     <RequiredPlugin pluginName="SofaPython"/>
+    <RequiredPlugin pluginName="Compliant"/>
 
     <!-- Specify the visual style at the start of the scene -->
     <VisualStyle displayFlags="showVisual showForceFields" />
+
+    <FreeMotionAnimationLoop/>
+    <LCPConstraintSolver tolerance="1e-3" maxIt="1000"/>
 
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
     <BruteForceDetection name="Detection" />
     <MinProximityIntersection name="Proximity" alarmDistance="0.15" contactDistance="0.05" />
-    <DefaultContactManager name="Response" response="default" />
+    <DefaultContactManager name="Response" response="FrictionContact" />
 
     <!-- Import the catheter -->
     <include href="catheter.scn" />
@@ -21,20 +23,28 @@
     <Node name = "Vessel">
         <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
         <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-9" threshold="1e-9" />
-        <MeshSTLLoader name="loader" filename="mesh/vessel.stl" />
-        <MechanicalObject src="@loader" name="VesselState" />
-        <UniformMass totalMass="10" />
+        <SparseGridTopology fileTopology="mesh/vessel.obj" n="20 6 6" />
+        <MechanicalObject name="VesselState" />
+        <UniformMass totalMass="1" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="1" />
+        <FixedConstraint name="FixedConstraint" indices="0 639" />
+        <UncoupledConstraintCorrection/>
+
         <Node name="CollisionModel">
-            <TriangleSetTopologyContainer  name="Container" src="@../loader"/>
+            <MeshSTLLoader name="loader" filename="mesh/vessel.stl" />
+            <TriangleSetTopologyContainer  name="Container" src="@loader"/>
             <TriangleSetTopologyModifier   name="Modifier" />
             <TriangleSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
             <TriangleSetGeometryAlgorithms name="GeomAlgo" template="Vec3d" />
-            <TriangleCollisionModel name="obstacleT" moving="0" simulated="0" />
-            <LineCollisionModel name="obstacleL" moving="0" simulated="0" />
-            <PointCollisionModel name="obstacleP" moving="0" simulated="0" />
-            <TriangularFEMForceField name="FEM" youngModulus="60" poissonRatio="0.3" method="large" />
-            <TriangularBendingSprings name="FEM-Bend" stiffness="300" damping="1.0" />
-            <TrianglePressureForceField normal="0 0 1" dmin="0.9" dmax="1.1" pressure="0.4 0 0" />
+            <MechanicalObject name="CollisionState" src="@loader" />
+            <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="100"                    bothSide="1"/>
+            <LineCollisionModel     template="Vec3d" name="Lines"     contactStiffness="@[-1].contactStiffness" bothSide="1"/>
+            <PointCollisionModel    template="Vec3d" name="Points"    contactStiffness="@[-1].contactStiffness" bothSide="1"/>
+            <BarycentricMapping />
+            <!-- <TriangularFEMForceField name="FEM" youngModulus="60" poissonRatio="0.3" method="large" /> -->
+            <!-- <TriangularBendingSprings name="FEM-Bend" stiffness="300" damping="1.0" />
+            <TrianglePressureForceField normal="0 0 1" dmin="0.9" dmax="1.1" pressure="0.4 0 0" /> -->
+
             <Node name="VisualModel">
                 <OglModel name="Visual" material="Default Diffuse 1 0 0 1 0.3 Ambient 1 0 0 0.1 0.3" />
                 <IdentityMapping  input="@.." output="@Visual" />
