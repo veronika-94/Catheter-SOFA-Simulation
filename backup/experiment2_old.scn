@@ -16,10 +16,10 @@
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
-    <include href="catheter.scn" />
+    <include href="catheter_long.scn" />
 
     <Node name = "Vessel">
-        <MeshSTLLoader name="loader" filename="mesh/cylinder.stl" />
+        <MeshObjLoader name="loader" filename="mesh/vesselSegment_centered.obj" translation="50 -5 -3" rotation="25 15 55" scale="800" handleSeams="1"/>
         <Node name="CollisionModel">
             <MeshTopology src="@../loader" name="ObstacleCollisionModel" />
             <MechanicalObject src="@../loader" name="ObstacleState" />
