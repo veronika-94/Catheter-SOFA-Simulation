@@ -20,10 +20,10 @@ class KeyboardControl(Sofa.PythonScriptController):
 
 		# UP key : front
 		if ord(k)==19:
-			free_position[0][2]+=speed
+			free_position[0][1]+=speed
 		# DOWN key : rear
 		if ord(k)==21:
-			free_position[0][2]-=speed
+			free_position[0][1]-=speed
 		# LEFT key : left
 		if ord(k)==18:
 			free_position[0][0]-=speed
@@ -32,10 +32,10 @@ class KeyboardControl(Sofa.PythonScriptController):
 			free_position[0][0]+=speed
 		# PAGEUP key : up
 		if ord(k)==22:
-			free_position[0][1]-=speed
+			free_position[0][2]-=speed
 		# PAGEDN key : down
 		if ord(k)==23:
-			free_position[0][1]+=speed
+			free_position[0][2]+=speed
 			
 		self.MechanicalState.position=free_position
 		return 0 
