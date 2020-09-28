@@ -15,7 +15,7 @@
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
-    <include href="catheter_simple.scn" />
+    <include href="catheter.scn" />
     
     <Node name = "Vessel">
         <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />

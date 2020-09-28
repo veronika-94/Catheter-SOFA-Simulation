@@ -4,3 +4,22 @@
 /Catheter/forces_experiment2.VelocitiesColor = 1 1 0 1
 /Catheter/forces_experiment2.ForcesColor = 1 1 0 1
 /Catheter/forces_experiment2.TrajectoriesColor = 1 1 0 1
+/Catheter/forces_experiment2.PositionsColor = 1 1 0 1
+/Catheter/forces_experiment2.VelocitiesColor = 1 1 0 1
+/Catheter/forces_experiment2.TrajectoriesColor = 1 1 0 1
+/Catheter/forces_experiment2.ForcesColor = 1 1 0 1
+
+--- NEW SESSION: 28/09/2020 21:27:15 ---
+/Catheter/forces_experiment2.ForcesColor = 1 1 0 1
+/Catheter/forces_experiment2.PositionsColor = 1 1 0 1
+/Catheter/forces_experiment2.VelocitiesColor = 1 1 0 1
+/Catheter/forces_experiment2.TrajectoriesColor = 1 1 0 1
+/Catheter/trajectories_8.PositionsColor = 1 1 0 1
+/Catheter/trajectories_8.VelocitiesColor = 1 1 0 1
+/Catheter/trajectories_8.ForcesColor = 0 1 1 1
+/Catheter/trajectories_8.TrajectoriesColor = 1 0 1 1
+/Catheter/forces_experiment2.PositionsColor = 1 1 0 1
+/Catheter/forces_experiment2.VelocitiesColor = 1 1 0 1
+/Catheter/forces_experiment2.TrajectoriesColor = 1 1 0 1
+/Catheter/forces_experiment2.ForcesColor = 1 1 0 1
+/Catheter/forces_experiment2.showForces = 1

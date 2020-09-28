@@ -3,6 +3,7 @@
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
     <RequiredPlugin name="SofaOpenglVisual"/>
     <RequiredPlugin pluginName="SofaPython"/>
+    <RequiredPlugin name="SofaValidation" />
 
     <!-- Specify the visual style at the start of the scene -->
     <VisualStyle displayFlags="showVisual" />
