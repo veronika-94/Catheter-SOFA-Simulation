@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 
-<Node name="root" dt="0.01" gravity="0 0 0">
+<Node name="root" dt="0.01" gravity="0 -9.81 0">
     <RequiredPlugin name="SofaOpenglVisual"/>
     <RequiredPlugin pluginName="SofaPython"/>
-    <RequiredPlugin pluginName="Compliant"/>
 
     <!-- Specify the visual style at the start of the scene -->
     <VisualStyle displayFlags="showVisual showCollisionModels" />
@@ -23,8 +22,8 @@
         <SparseGridTopology fileTopology="mesh/vessel3.obj" n="20 6 6" />
         <MechanicalObject name="VesselState" />
         <UniformMass totalMass="1" />
-        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="5000" />
-        <FixedConstraint name="FixedConstraint" indices="0 5 26 31 608 613 634 639" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="1000" />
+        <FixedConstraint name="FixedConstraint" indices="0 4 25 29 458 461 430 433" />
 
         <Node name="CollisionModel">
             <MeshSTLLoader name="loader" filename="mesh/vessel3.stl" />
@@ -33,7 +32,7 @@
             <TriangleSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
             <TriangleSetGeometryAlgorithms name="GeomAlgo" template="Vec3d" />
             <MechanicalObject name="CollisionState" src="@loader" />
-            <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="10"                     bothSide="1" />
+            <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="5"                      bothSide="1" />
             <LineCollisionModel     template="Vec3d" name="Lines"     contactStiffness="@[-1].contactStiffness" bothSide="1" />
             <PointCollisionModel    template="Vec3d" name="Points"    contactStiffness="@[-1].contactStiffness" bothSide="1" />
             <BarycentricMapping />
