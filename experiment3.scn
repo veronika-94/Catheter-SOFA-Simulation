@@ -20,14 +20,14 @@
     <Node name = "Vessel">
         <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />
         <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-9" threshold="1e-9" />
-        <SparseGridTopology fileTopology="mesh/vessel2.obj" n="20 6 6" />
+        <SparseGridTopology fileTopology="mesh/vessel3.obj" n="20 6 6" />
         <MechanicalObject name="VesselState" />
         <UniformMass totalMass="1" />
-        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="500" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="5000" />
         <FixedConstraint name="FixedConstraint" indices="0 5 26 31 608 613 634 639" />
 
         <Node name="CollisionModel">
-            <MeshSTLLoader name="loader" filename="mesh/vessel2.stl" />
+            <MeshSTLLoader name="loader" filename="mesh/vessel3.stl" />
             <TriangleSetTopologyContainer  name="Container" src="@loader"/>
             <TriangleSetTopologyModifier   name="Modifier" />
             <TriangleSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
