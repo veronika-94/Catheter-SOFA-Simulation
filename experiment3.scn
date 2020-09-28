@@ -23,7 +23,7 @@
         <MechanicalObject name="VesselState" />
         <UniformMass totalMass="1" />
         <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="1000" />
-        <FixedConstraint name="FixedConstraint" indices="0 4 25 29 458 461 430 433" />
+        <FixedConstraint name="FixedConstraint" indices="0 3 26 29 446 449 472 475" />
 
         <Node name="CollisionModel">
             <MeshSTLLoader name="loader" filename="mesh/vessel3.stl" />
