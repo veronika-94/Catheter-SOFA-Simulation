@@ -1,3 +1,6 @@
 
---- NEW SESSION: 28/09/2020 12:23:53 ---
-/Vessel/VesselState.showIndices = 1
+--- NEW SESSION: 28/09/2020 21:07:42 ---
+/Catheter/forces_experiment2.PositionsColor = 1 1 0 1
+/Catheter/forces_experiment2.VelocitiesColor = 1 1 0 1
+/Catheter/forces_experiment2.ForcesColor = 1 1 0 1
+/Catheter/forces_experiment2.TrajectoriesColor = 1 1 0 1

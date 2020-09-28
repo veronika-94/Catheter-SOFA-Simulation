@@ -3,9 +3,10 @@
 <Node name="root" dt="0.01" gravity="0 -9.81 0">
     <RequiredPlugin name="SofaOpenglVisual"/>
     <RequiredPlugin pluginName="SofaPython"/>
+    <RequiredPlugin name="SofaValidation" />
 
     <!-- Specify the visual style at the start of the scene -->
-    <VisualStyle displayFlags="showVisual showCollisionModels" />
+    <VisualStyle displayFlags="showVisual" />
 
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
@@ -14,7 +15,7 @@
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
-    <include href="catheter.scn" />
+    <include href="catheter_simple.scn" />
     
     <Node name = "Vessel">
         <EulerImplicitSolver name="ImplicitEulerSolver" rayleighMass="0.1" rayleighStiffness="0.1" />

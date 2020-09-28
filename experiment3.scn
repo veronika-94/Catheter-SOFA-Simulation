@@ -5,7 +5,7 @@
     <RequiredPlugin pluginName="SofaPython"/>
 
     <!-- Specify the visual style at the start of the scene -->
-    <VisualStyle displayFlags="showVisual showCollisionModels" />
+    <VisualStyle displayFlags="showVisual" />
 
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
