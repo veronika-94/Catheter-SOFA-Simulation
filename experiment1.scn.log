@@ -1,28 +1,10 @@
 
---- NEW SESSION: 28/09/2020 20:53:17 ---
-/Catheter/forces_test.ExportForces = 1
-/Catheter/forces_test.showForces = 1
-/Catheter/forces_test.TrajectoriesColor = 1 1 0 1
-/Catheter/forces_test.PositionsColor = 1 1 0 1
-/Catheter/forces_test.ForcesColor = 1 1 0 1
-/Catheter/forces_test.VelocitiesColor = 1 1 0 1
-
---- NEW SESSION: 28/09/2020 20:56:14 ---
-/Catheter/./forces_test.txt.PositionsColor = 1 1 0 1
-/Catheter/./forces_test.txt.ForcesColor = 1 1 0 1
-/Catheter/./forces_test.txt.TrajectoriesColor = 1 1 0 1
-/Catheter/./forces_test.txt.VelocitiesColor = 1 1 0 1
-/Catheter/forces_test.ForcesColor = 1 1 0 1
-/Catheter/forces_test.VelocitiesColor = 1 1 0 1
-/Catheter/forces_test.PositionsColor = 1 1 0 1
-/Catheter/forces_test.TrajectoriesColor = 1 1 0 1
-/Catheter/forces_test.PositionsColor = 1 1 0 1
-/Catheter/forces_test.VelocitiesColor = 1 1 0 1
-/Catheter/forces_test.TrajectoriesColor = 1 1 0 1
-/Catheter/forces_test.ForcesColor = 1 1 0 1
-
---- NEW SESSION: 28/09/2020 21:03:36 ---
-/Catheter/forces_test.VelocitiesColor = 1 1 0 1
-/Catheter/forces_test.ForcesColor = 1 1 0 1
-/Catheter/forces_test.PositionsColor = 1 1 0 1
-/Catheter/forces_test.TrajectoriesColor = 1 1 0 1
+--- NEW SESSION: 29/09/2020 15:34:23 ---
+/Catheter/beamForces_experiment1.PositionsColor = 1 1 0 1
+/Catheter/beamForces_experiment1.VelocitiesColor = 1 1 0 1
+/Catheter/beamForces_experiment1.ForcesColor = 1 1 0 1
+/Catheter/beamForces_experiment1.TrajectoriesColor = 1 1 0 1
+/Catheter/CylinderTopology/contactForces_experiment1.TrajectoriesColor = 1 1 0 1
+/Catheter/CylinderTopology/contactForces_experiment1.ForcesColor = 1 1 0 1
+/Catheter/CylinderTopology/contactForces_experiment1.PositionsColor = 1 1 0 1
+/Catheter/CylinderTopology/contactForces_experiment1.VelocitiesColor = 1 1 0 1
