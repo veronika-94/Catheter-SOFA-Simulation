@@ -11,7 +11,7 @@
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
     <BruteForceDetection name="Detection" />
-    <MinProximityIntersection name="Proximity" alarmDistance="0.15" contactDistance="0.05" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.5" contactDistance="0.05" />
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
@@ -22,8 +22,8 @@
         <CGLinearSolver name="CGLinearSolver" iterations="25" tolerance="1e-9" threshold="1e-9" />
         <SparseGridTopology fileTopology="mesh/vessel3.obj" n="20 6 6" />
         <MechanicalObject name="VesselState" />
-        <UniformMass totalMass="1" />
-        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="1000" />
+        <UniformMass totalMass="0.05" />
+        <HexahedronFEMForceField template="Vec3d" name="FEM" poissonRatio="0.45" youngModulus="10" />
         <FixedConstraint name="FixedConstraint" indices="0 3 26 29 446 449 472 475" />
 
         <Node name="CollisionModel">
@@ -33,7 +33,7 @@
             <TriangleSetTopologyAlgorithms name="TopoAlgo" template="Vec3d" />
             <TriangleSetGeometryAlgorithms name="GeomAlgo" template="Vec3d" />
             <MechanicalObject name="CollisionState" src="@loader" />
-            <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="5"                      bothSide="1" />
+            <TriangleCollisionModel template="Vec3d" name="Triangles" contactStiffness="1"                      bothSide="1" />
             <LineCollisionModel     template="Vec3d" name="Lines"     contactStiffness="@[-1].contactStiffness" bothSide="1" />
             <PointCollisionModel    template="Vec3d" name="Points"    contactStiffness="@[-1].contactStiffness" bothSide="1" />
             <BarycentricMapping />

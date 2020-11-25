@@ -2,7 +2,7 @@ close all
 clear all
 clc
 %% Read file excel
-inputData = readmatrix('../contactForces/test_f.xlsx');
+inputData = readmatrix('../contactForces/experiment2_f.xlsx');
 EXPERIMENT = 2;
 %%
 T = 1000;
@@ -29,7 +29,7 @@ end
 
 %% Raw plots
 for i = 1:dof
-    name = ['Experiment 3 - Contact force ' num2str(i)]
+    name = ['Experiment ' num2str(EXPERIMENT) ' - Contact force ' num2str(i)]
     fig = figure('name', name, 'position', [10 50 1000 600])
     subplot(3,1,1)
     plot(timeArray, contactForces(i,:,1))
@@ -84,7 +84,7 @@ end
 % 
 % subplot(2,2,2);
 % plot(timeArray,y_filter);
-% title("Low-pass filter (passband frequency = 8 Hz");
+% title("Low-pass filter (passband frequency = 8 Hz)");
 % 
 % subplot(2,2,3);
 % plot(timeArray,y_mean);
