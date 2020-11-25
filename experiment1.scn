@@ -11,7 +11,7 @@
     <!-- Default variables needed for collisions -->
     <DefaultPipeline depth="6" verbose="0" />
     <BruteForceDetection name="Detection" />
-    <MinProximityIntersection name="Proximity" alarmDistance="0.15" contactDistance="0.05" />
+    <MinProximityIntersection name="Proximity" alarmDistance="0.5" contactDistance="0.1" />
     <DefaultContactManager name="Response" response="default" />
 
     <!-- Import the catheter -->
