@@ -2,8 +2,8 @@ close all
 clear all
 clc
 %% Read file excel
-inputData = readmatrix('../contactForces/experiment2_f.xlsx');
-EXPERIMENT = 2;
+inputData = readmatrix('../contactForces/experiment3_f.xlsx');
+EXPERIMENT = 3;
 %%
 T = 1000;
 timeArray = inputData(1:T,1); % array of time at first 10 seconds
@@ -72,10 +72,10 @@ for i = 1:dof
 end
 
 %% Test filter / moving mean / moving median
-% x = contactForces(21,:,3);
+% x = contactForces(21,:,2);
 % y_filter = lowpass(x, 8, 100);
 % y_mean = smoothdata(x,'movmean', 5);
-% y_median = smoothdata(x,'movmedian',5);
+% y_median = smoothdata(x,'movmedian', 5);
 % 
 % fig = figure('name', 'Experiment 2 - Contact forces at the tip - z axis', 'position', [10 50 1000 600]);
 % subplot(2,2,1);
